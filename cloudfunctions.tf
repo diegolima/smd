@@ -1,0 +1,29 @@
+resource "google_storage_bucket_object" "smd" {
+  name   = var.function_zip_name
+  bucket = google_storage_bucket.smd.name
+  source = var.function_zip_source
+}
+
+resource "google_cloudfunctions_function" "smd" {
+  name        = var.function_name
+  runtime     = var.function_runtime
+
+  available_memory_mb   = var.function_memory
+  source_archive_bucket = google_storage_bucket.smd.name
+  source_archive_object = google_storage_bucket_object.smd.name
+  trigger_http          = true
+  entry_point           = var.function_entrypoint
+}
+
+resource "google_cloudfunctions_function_iam_member" "invoker" {
+  project        = google_cloudfunctions_function.smd.project
+  region         = google_cloudfunctions_function.smd.region
+  cloud_function = google_cloudfunctions_function.smd.name
+
+  role   = "roles/cloudfunctions.invoker"
+  member = "allUsers"
+}
+
+output "smd_cloudfunction_endpoint" {
+    value = google_cloudfunctions_function.smd.https_trigger_url
+}
