@@ -6,7 +6,8 @@ resource "google_storage_bucket_object" "smd" {
 
 resource "google_cloudfunctions_function" "smd" {
   name        = var.function_name
-  project     = var.provider_project_name
+  project     = data.google_project.smd.name
+  region      = var.provider_region
   runtime     = var.function_runtime
 
   available_memory_mb   = var.function_memory

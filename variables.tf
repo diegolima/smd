@@ -14,3 +14,4 @@ variable "function_zip_name"     {
     default = "function.zip"
 }
 variable "provider_project_name" { type = string }
+variable "provider_region"       { type = string }
