@@ -5,6 +5,3 @@ provider "google-beta" {
 provider "google" {
   version               = "~> 3.5"
 }
-data "google_project" "smd" {
-  project_id = var.provider_project_name
-}
