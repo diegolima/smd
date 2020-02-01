@@ -15,3 +15,7 @@ variable "function_zip_name"     {
 }
 variable "provider_project_name" { type = string }
 variable "provider_region"       { type = string }
+variable "repository_app_dir"    {
+    type = string
+    default = "app"
+}

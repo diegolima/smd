@@ -1,7 +1,7 @@
 resource "google_storage_bucket_object" "smd" {
   name   = "${var.function_zip_name}-${md5(file("${var.function_zip_name}.zip"))}.zip"
   bucket = var.function_bucket_name
-  source = "${var.function_zip_name}.zip"
+  source = "${repository_app_dir}/${var.function_zip_name}.zip"
 }
 
 resource "google_cloudfunctions_function" "smd" {
