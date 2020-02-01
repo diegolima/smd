@@ -1,6 +1,6 @@
 resource "google_storage_bucket_object" "smd" {
   name   = var.function_zip_name
-  bucket = google_storage_bucket.smd.name
+  bucket = "smd"
   source = var.function_zip_source
 }
 
@@ -9,7 +9,7 @@ resource "google_cloudfunctions_function" "smd" {
   runtime     = var.function_runtime
 
   available_memory_mb   = var.function_memory
-  source_archive_bucket = google_storage_bucket.smd.name
+  source_archive_bucket = "smd"
   source_archive_object = google_storage_bucket_object.smd.name
   trigger_http          = true
   entry_point           = var.function_entrypoint
