@@ -13,3 +13,4 @@ variable "function_zip_name"     {
     type    = string
     default = "function.zip"
 }
+variable "provider_project_name" { type = string }
