@@ -7,7 +7,7 @@ provider "google" {
 }
 terraform {
   backend "gcs" {
-    bucket = var.function_bucket_name
-    prefix = PREFIX
+    bucket = "BUCKET"
+    prefix = "PREFIX"
   }
 }
