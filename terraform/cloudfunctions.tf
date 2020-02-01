@@ -1,5 +1,5 @@
 resource "google_storage_bucket_object" "smd" {
-  name   = "${var.function_zip_name}-${filemd5("${var.function_zip_name}.zip")}.zip"
+  name   = "${var.function_name}-${filemd5("${var.function_zip_name}.zip")}.zip"
   bucket = var.function_bucket_name
   source = "${var.function_zip_name}.zip"
 }
