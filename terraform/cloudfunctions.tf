@@ -15,6 +15,8 @@ resource "google_cloudfunctions_function" "smd" {
   source_archive_object = google_storage_bucket_object.smd.name
   trigger_http          = true
   entry_point           = var.function_entrypoint
+
+  depends_on = [ google_storage_bucket_object.smd ]
 }
 
 resource "google_cloudfunctions_function_iam_member" "invoker" {
