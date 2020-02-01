@@ -1,4 +1,3 @@
-variable "prefix"                { type = string }
 variable "function_bucket_name"  { type = string }
 variable "function_memory"       {
     type    = string
