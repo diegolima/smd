@@ -11,7 +11,7 @@ variable "function_runtime"      {
 }
 variable "function_zip_name"     {
     type    = string
-    default = "function.zip"
+    default = "function"
 }
 variable "provider_project_name" { type = string }
 variable "provider_region"       { type = string }
