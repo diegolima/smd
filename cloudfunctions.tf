@@ -1,7 +1,7 @@
 resource "google_storage_bucket_object" "smd" {
   name   = var.function_zip_name
   bucket = var.function_bucket_name
-  source = var.function_zip_source
+  source = var.function_zip_name
 }
 
 resource "google_cloudfunctions_function" "smd" {

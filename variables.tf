@@ -13,4 +13,6 @@ variable "function_zip_name"     {
     type    = string
     default = "function.zip"
 }
-variable "function_zip_source"   { type = string }
+variable "function_zip_source"   { 
+    type = string
+}
